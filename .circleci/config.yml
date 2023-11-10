@@ -191,7 +191,7 @@ jobs:
           root: ~/
           paths:
             - project/.circleci/ansible/inventory.ini
-            
+
       - destroy-environment:
           id: ${CIRCLE_WORKFLOW_ID:0:7}
 
@@ -236,6 +236,7 @@ jobs:
             - project/backend
       - destroy-environment:
           id: ${CIRCLE_WORKFLOW_ID:0:7}
+          
 
   run-migrations:
     docker:
@@ -266,11 +267,11 @@ jobs:
             then
               echo "Successful migration"
               # Using kvdb.io
-              curl --insecure https://kvdb.io/6Gm7goALh7t85x6m4KcqvD/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+              curl --insecure https://kvdb.io/VxmAwzTZ39Tky3phMkSSD/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             else  
               echo "Migration not necessary or not successful"
               # Using kvdb.io
-              curl --insecure https://kvdb.io/6Gm7goALh7t85x6m4KcqvD/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '0'
+              curl --insecure https://kvdb.io/VxmAwzTZ39Tky3phMkSSD/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '0'
             fi
       - destroy-environment:
           id: ${CIRCLE_WORKFLOW_ID:0:7}
