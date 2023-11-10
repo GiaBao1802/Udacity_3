@@ -181,7 +181,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-          - "66:1a:1c:98:8e:bf:f8:80:a9:0f:59:06:b1:70:cf:3c"
+          - "a9:03:89:be:65:16:9c:81:2d:20:33:7e:9d:90:b3:61"
       - run:
           name: Install dependencies
           command: |
@@ -243,8 +243,13 @@ jobs:
           command: |
             if grep -q "success" ~/project/backend/migrations_dump.txt
             then
-              # If you are using kvdb.io, generate the bucket ID "VxmAwzTZ39Tky3phMkSSD" in your local terminal first
-              curl --insecure https://kvdb.io/VxmAwzTZ39Tky3phMkSSD/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+              echo "Successful migration"
+              # Using kvdb.io
+              curl --insecure https://kvdb.io/6Gm7goALh7t85x6m4KcqvD/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+            else  
+              echo "Migration not necessary or not successful"
+              # Using kvdb.io
+              curl --insecure https://kvdb.io/6Gm7goALh7t85x6m4KcqvD/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '0'
             fi
       - destroy-environment:
           id: ${CIRCLE_WORKFLOW_ID:0:7}
