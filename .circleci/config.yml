@@ -165,7 +165,7 @@ jobs:
                --query 'Reservations[*].Instances[*].PublicIpAddress' \
                --output text)
             echo $BACKEND_PUBLIC_IP >> .circleci/ansible/inventory.ini
-            curl --insecure https://kvdb.io/FWfT3EJvSc3D57Yhp76CdN/backendurl -d $(echo $BACKEND_PUBLIC_IP)
+            curl --insecure https://kvdb.io/VxmAwzTZ39Tky3phMkSSD/backendurl -d $(echo $BACKEND_PUBLIC_IP)
             cat .circleci/ansible/inventory.ini
       - persist_to_workspace:
           root: ~/
@@ -243,8 +243,8 @@ jobs:
           command: |
             if grep -q "success" ~/project/backend/migrations_dump.txt
             then
-              # If you are using kvdb.io, generate the bucket ID "FWfT3EJvSc3D57Yhp76CdN" in your local terminal first
-              curl --insecure https://kvdb.io/FWfT3EJvSc3D57Yhp76CdN/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+              # If you are using kvdb.io, generate the bucket ID "VxmAwzTZ39Tky3phMkSSD" in your local terminal first
+              curl --insecure https://kvdb.io/VxmAwzTZ39Tky3phMkSSD/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             fi
       - destroy-environment:
           id: ${CIRCLE_WORKFLOW_ID:0:7}
