@@ -38,7 +38,7 @@ commands:
           working_directory: ./backend
           when: on_fail
           command: |
-            SUCCESS=$(curl --insecure https://kvdb.io/FWfT3EJvSc3D57Yhp76CdN/migration_<< parameters.id >>)
+            SUCCESS=$(curl --insecure https://kvdb.io/VxmAwzTZ39Tky3phMkSSD/migration_<< parameters.id >>)
             echo $SUCCESS
             if [[ "$SUCCESS" == "1" ]]
             then
@@ -410,7 +410,7 @@ jobs:
             list-exports --query "Exports[?Name==\`WorkflowID\`].Value" \
             --no-paginate --output text)
             echo $OldWorkflowID
-            curl --insecure https://kvdb.io/FWfT3EJvSc3D57Yhp76CdN/OldWorkflowID -d ${OldWorkflowID}
+            curl --insecure https://kvdb.io/VxmAwzTZ39Tky3phMkSSD/OldWorkflowID -d ${OldWorkflowID}
       - run:
           name: Update Cloud Front distribution
           command: |
