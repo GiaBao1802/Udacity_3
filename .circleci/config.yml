@@ -330,7 +330,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-          - "66:1a:1c:98:8e:bf:f8:80:a9:0f:59:06:b1:70:cf:3c"
+          - "a9:03:89:be:65:16:9c:81:2d:20:33:7e:9d:90:b3:61"
       - attach_workspace:
           at: ./
       - restore_cache:
@@ -410,7 +410,7 @@ jobs:
             list-exports --query "Exports[?Name==\`WorkflowID\`].Value" \
             --no-paginate --output text)
             echo $OldWorkflowID
-            curl --insecure https://kvdb.io/FWfT3EJvSc3D57Yhp76CdN/OldWorkflowID -d ${OldWorkflowID}
+            curl --insecure https://kvdb.io/VxmAwzTZ39Tky3phMkSSD/OldWorkflowID -d ${OldWorkflowID}
       - run:
           name: Update Cloud Front distribution
           command: |
@@ -433,7 +433,7 @@ jobs:
           name: Remove old stacks and files
           command: |
             # Fetch the Old workflow ID
-            export OldWorkflowID=$(curl --insecure https://kvdb.io/FWfT3EJvSc3D57Yhp76CdN/OldWorkflowID)
+            export OldWorkflowID=$(curl --insecure https://kvdb.io/VxmAwzTZ39Tky3phMkSSD/OldWorkflowID)
             echo OldWorkflowID: "${OldWorkflowID}"
             echo CIRCLE_WORKFLOW_ID "${CIRCLE_WORKFLOW_ID:0:7}"
             # Fetch the stack names
@@ -460,7 +460,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "66:1a:1c:98:8e:bf:f8:80:a9:0f:59:06:b1:70:cf:3c"
+            - "a9:03:89:be:65:16:9c:81:2d:20:33:7e:9d:90:b3:61"
       - run:
           name: Install dependencies
           command: |
