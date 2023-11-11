@@ -1,3 +1,3 @@
 [URL01] https://github.com/GiaBao1802/Udacity_3
-[URL02] http://udapeople-3603396.s3-website-us-east-1.amazonaws.com/
-[URL02 - cloudfront] http://d1dpsk237ddyly.cloudfront.net/#/employees
+[URL02] http://udapeople-5110877.s3-website-us-east-1.amazonaws.com/
+[URL02 - cloudfront] http://d1kn61q881izbi.cloudfront.net
